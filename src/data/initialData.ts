@@ -1,5 +1,6 @@
 import cert1Pic from "../assets/cert-1.png";
 import profilePic from "../assets/photo-1.png";
+import cert2Img from '../assets/cert-2.png';
 import { PortfolioData } from '../types';
 
 export const initialPortfolioData: PortfolioData = {
@@ -94,16 +95,18 @@ export const initialPortfolioData: PortfolioData = {
       file: cert1Pic,
       url: "",
     },
-    {
-      id: "cert-2",
-      title: "SolidWorks Associate",
-      organization: "Dassault Systèmes",
-      date: "2024-01",
-      category: "Technical",
-      credentialId: "",
-      description: "Certified SolidWorks Associate in mechanical design.",
-      file: "",
-      url: "",
+    
+      {
+  id: "cert-2",
+  title: "From Engineering to Jet Engines: Navigating a Career in Aviation",
+  organization: "ASME UET Peshawar Student Section",
+  date: "2026-08",
+  category: "Technical",
+  credentialId: "",
+  description: "Attended webinar on aviation career pathways and jet engine engineering hosted by ASME UET Peshawar.",
+  file: cert2Img,
+  url: "",
+
     }
   ],
   projects: [
