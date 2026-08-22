@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .no-print {
+    display: block;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Screen layout for CV container */
+.cv-print {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 20mm;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Print CSS setup */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  /* Reset body and document scrolling limits */
+  html, body, #root {
+    background: #ffffff !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide interactive portfolio UI elements, buttons, and site layout wrappers */
+  nav, 
+  footer, 
+  header, 
+  button, 
+  .no-print, 
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  /* Force CV container to take natural flow starting at page top */
+  .cv-print {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Ensure child elements remain visible */
+  .cv-print * {
+    visibility: visible !important;
+  }
+
+  /* Natural Multi-Page Flow Handling */
+  section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Prevent individual list items or entries from cutting in half */
+  .cv-print div, 
+  .cv-print li {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Ensure maximum text sharpness */
+  .cv-print * {
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+}
