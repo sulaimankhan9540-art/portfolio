@@ -3,7 +3,7 @@ import { Menu, X, Download } from 'lucide-react';
 
 interface NavbarProps {
   onAdminToggle?: () => void;
-  onDownloadCV: () => void; // Add this prop
+  onDownloadCV: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) => {
@@ -34,11 +34,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
 
   const handleCVClick = () => {
     setIsMobileMenuOpen(false);
-    onDownloadCV(); // Call the exact working function from parent/Hero
+    onDownloadCV();
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-white lg:bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <button onClick={() => scrollTo('#home')} className="text-xl font-bold text-primary-900 tracking-tight">
@@ -79,15 +79,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown Menu (Fixed background & depth) */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+          <div className="lg:hidden mt-4 pb-6 pt-4 px-4 bg-white shadow-2xl rounded-b-2xl border-t border-gray-100">
             <div className="flex flex-col gap-1">
               {navLinks.map(link => (
                 <button 
                   key={link.href} 
                   onClick={() => scrollTo(link.href)}
-                  className="px-4 py-3 text-left text-gray-600 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors font-medium"
+                  className="px-4 py-3 text-left text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors font-medium"
                 >
                   {link.label}
                 </button>
@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
               
               <button 
                 onClick={handleCVClick} 
-                className="mt-2 px-4 py-3 text-center font-semibold text-white bg-primary-800 hover:bg-primary-900 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="mt-3 px-4 py-3 text-center font-semibold text-white bg-primary-800 hover:bg-primary-900 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md"
               >
                 <Download className="w-4 h-4" />
                 Download CV
