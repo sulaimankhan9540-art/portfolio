@@ -3,6 +3,7 @@ import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
 import waterTapImg from '../assets/water-tap-mockup.png';
 import { PortfolioData } from '../types';
+import universalVideo from '../assets/universal-joint.mp4'; // Direct import via Vite
 
 export const initialPortfolioData: PortfolioData = {
   profile: {
@@ -136,7 +137,7 @@ export const initialPortfolioData: PortfolioData = {
   tools: ["Creo", "AutoCAD", "CAD Assembly", "Kinematic Analysis"],
   role: "Mechanical CAD Designer",
   images: [],
-  videoUrl: "/universal-joint.mp4",
+  videoUrl: universalVideo,
   githubUrl: "",
   liveUrl: "",
   documentation: "",
