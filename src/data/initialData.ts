@@ -2,8 +2,7 @@ import cert1Pic from "../assets/cert-1.png";
 import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
 import waterTapImg from '../assets/water-tap-mockup.png';
-// 1. Import your thumbnail image here (make sure the filename matches your asset in src/assets/)
-import universalThumbImg from '../assets/universal-thumb.png'; 
+import universalThumbImg from '../assets/universal-thumb.jpeg';
 import { PortfolioData } from '../types';
 
 export const initialPortfolioData: PortfolioData = {
@@ -135,8 +134,7 @@ export const initialPortfolioData: PortfolioData = {
       detailedDescription: "Designed a high-precision 3D CAD assembly of a Universal Joint (Hooke's Joint) in Creo Parametric. Formulated core component geometry—including driver/driven yokes, central spider pin, keys, and shaft ends—and configured kinematic constraints to demonstrate dynamic angular power transmission across non-collinear shafts.",
       tools: ["Creo", "AutoCAD", "CAD Assembly", "Kinematic Analysis"],
       role: "Mechanical CAD Designer",
-      // 2. Added thumbnail here inside the images array
-      images: [universalThumbImg], 
+      images: [universalThumbImg],
       videoUrl: "/universal-joint.mp4",
       githubUrl: "",
       liveUrl: "",
