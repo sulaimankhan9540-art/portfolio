@@ -1,7 +1,7 @@
 import cert1Pic from "../assets/cert-1.png";
 import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
-import waterTapImg from '../assets/water-tap.png';
+import waterTapImg from '../assets/water-tap-mockup.png';
 import { PortfolioData } from '../types';
 
 export const initialPortfolioData: PortfolioData = {
@@ -111,7 +111,7 @@ export const initialPortfolioData: PortfolioData = {
     }
   ],
   projects: [
-    {
+   {
   id: "proj-automatic-water-tap",
   title: "Automatic Water Tap System",
   category: "Mechatronics",
