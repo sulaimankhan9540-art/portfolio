@@ -57,8 +57,17 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               <div key={project.id} 
                 onClick={() => { setSelectedProject(project); setCurrentImageIndex(0); }}
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer">
-                <div className="relative h-52 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center overflow-hidden">
-                  {project.images.length > 0 ? (
+                <div className="relative h-52 bg-black flex items-center justify-center overflow-hidden">
+                  {project.videoUrl ? (
+                    <video 
+                      src={project.videoUrl} 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : project.images.length > 0 ? (
                     <img src={project.images[0]} alt={project.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
@@ -93,6 +102,21 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         title={selectedProject?.title || ''} size="lg">
         {selectedProject && (
           <div className="space-y-5">
+            {/* Video Player */}
+            {selectedProject.videoUrl && (
+              <div className="relative rounded-xl overflow-hidden bg-black max-h-80">
+                <video
+                  src={selectedProject.videoUrl}
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full max-h-80 object-contain mx-auto"
+                />
+              </div>
+            )}
+
             {/* Image Gallery */}
             {selectedProject.images.length > 0 && (
               <div className="relative rounded-xl overflow-hidden bg-gray-100">
