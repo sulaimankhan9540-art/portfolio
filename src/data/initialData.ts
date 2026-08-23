@@ -1,6 +1,7 @@
 import cert1Pic from "../assets/cert-1.png";
 import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
+import waterTapImg from '../assets/water-tap.png';
 import { PortfolioData } from '../types';
 
 export const initialPortfolioData: PortfolioData = {
@@ -111,20 +112,20 @@ export const initialPortfolioData: PortfolioData = {
   ],
   projects: [
     {
-      id: "proj-1",
-      title: "Automated Conveyor System",
-      category: "Mechanical",
-      date: "2024",
-      shortDescription: "Designed and prototyped an automated conveyor system for material handling.",
-      detailedDescription: "This project involved the complete design and prototyping of an automated conveyor belt system optimized for small-scale manufacturing. The system includes sensor-based object detection, variable speed control, and safety mechanisms.",
-      tools: ["SolidWorks", "AutoCAD", "Arduino", "MS Office"],
-      role: "Lead Designer",
-      images: [],
-      videoUrl: "",
-      githubUrl: "",
-      liveUrl: "",
-      documentation: "",
-    },
+  id: "proj-automatic-water-tap",
+  title: "Automatic Water Tap System",
+  category: "Mechatronics",
+  date: "2026",
+  shortDescription: "Designed and prototyped a touchless, low-cost automatic water tap to reduce water wastage and improve hygiene[cite: 1].",
+  detailedDescription: "Developed an automated water tap system for the Mechatronics Lab at UET Peshawar using an Arduino Uno, IR proximity sensor, and SG90 servo motor[cite: 1]. The system detects hand presence within 2–8 cm to automatically actuate the water valve in under 0.5 seconds, eliminating manual contact and curbing unnecessary water flow[cite: 1]. Includes circuit design, embedded C++ control logic, and a physical prototype assembly built for under PKR 4,000[cite: 1].",
+  tools: ["Arduino", "Embedded C++", "IR Proximity Sensor", "SG90 Servo Motor", "SolidWorks", "Breadboard Circuitry"],
+  role: "Mechanical & Control Systems Designer",
+  images: [waterTapImg],
+  videoUrl: "",
+  githubUrl: "",
+  liveUrl: "",
+  documentation: "",
+},
     {
       id: "proj-2",
       title: "Solar-Powered Water Pump",
