@@ -3,7 +3,6 @@ import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
 import waterTapImg from '../assets/water-tap-mockup.png';
 import { PortfolioData } from '../types';
-import universalVideo from '../assets/universal-joint.mp4'; // Direct import via Vite
 
 export const initialPortfolioData: PortfolioData = {
   profile: {
@@ -97,51 +96,49 @@ export const initialPortfolioData: PortfolioData = {
       file: cert1Pic,
       url: "",
     },
-    
-      {
-  id: "cert-2",
-  title: "From Engineering to Jet Engines: Navigating a Career in Aviation",
-  organization: "ASME UET Peshawar Student Section",
-  date: "2026-08",
-  category: "Technical",
-  credentialId: "",
-  description: "Attended webinar on aviation career pathways and jet engine engineering hosted by ASME UET Peshawar.",
-  file: cert2Img,
-  url: "",
-
+    {
+      id: "cert-2",
+      title: "From Engineering to Jet Engines: Navigating a Career in Aviation",
+      organization: "ASME UET Peshawar Student Section",
+      date: "2026-08",
+      category: "Technical",
+      credentialId: "",
+      description: "Attended webinar on aviation career pathways and jet engine engineering hosted by ASME UET Peshawar.",
+      file: cert2Img,
+      url: "",
     }
   ],
   projects: [
-   {
-  id: "proj-automatic-water-tap",
-  title: "Automatic Water Tap System",
-  category: "Mechatronics",
-  date: "2026",
-  shortDescription: "Designed and prototyped a touchless, low-cost automatic water tap to reduce water wastage and improve hygiene.",
-  detailedDescription: "Developed an automated water tap system for the Mechatronics Lab at UET Peshawar using an Arduino Uno, IR proximity sensor, and SG90 servo motor. The system detects hand presence within 2–8 cm to automatically actuate the water valve in under 0.5 seconds, eliminating manual contact and curbing unnecessary water flow. Includes circuit design, embedded C++ control logic, and a physical prototype assembly built for under PKR 4,000.",
-  tools: ["Arduino", "Embedded C++", "IR Proximity Sensor", "SG90 Servo Motor", "SolidWorks", "Breadboard Circuitry"],
-  role: "Mechanical & Control Systems Designer",
-  images: [waterTapImg],
-  videoUrl: "",
-  githubUrl: "",
-  liveUrl: "",
-  documentation: "",
-},
     {
-  id: "proj-universal-joint-assembly",
-  title: "Universal Joint Assembly Modeling",
-  category: "Mechanical",
-  date: "2026",
-  shortDescription: "Modeled and assembled a complete 3D Hooke's Joint in Creo Parametric with kinematic motion verification.",
-  detailedDescription: "Designed a high-precision 3D CAD assembly of a Universal Joint (Hooke's Joint) in Creo Parametric. Formulated core component geometry—including driver/driven yokes, central spider pin, keys, and shaft ends—and configured kinematic constraints to demonstrate dynamic angular power transmission across non-collinear shafts.",
-  tools: ["Creo", "AutoCAD", "CAD Assembly", "Kinematic Analysis"],
-  role: "Mechanical CAD Designer",
-  images: [],
-  videoUrl: universalVideo,
-  githubUrl: "",
-  liveUrl: "",
-  documentation: "",
-},
+      id: "proj-automatic-water-tap",
+      title: "Automatic Water Tap System",
+      category: "Mechatronics",
+      date: "2026",
+      shortDescription: "Designed and prototyped a touchless, low-cost automatic water tap to reduce water wastage and improve hygiene.",
+      detailedDescription: "Developed an automated water tap system for the Mechatronics Lab at UET Peshawar using an Arduino Uno, IR proximity sensor, and SG90 servo motor. The system detects hand presence within 2–8 cm to automatically actuate the water valve in under 0.5 seconds, eliminating manual contact and curbing unnecessary water flow. Includes circuit design, embedded C++ control logic, and a physical prototype assembly built for under PKR 4,000.",
+      tools: ["Arduino", "Embedded C++", "IR Proximity Sensor", "SG90 Servo Motor", "SolidWorks", "Breadboard Circuitry"],
+      role: "Mechanical & Control Systems Designer",
+      images: [waterTapImg],
+      videoUrl: "",
+      githubUrl: "",
+      liveUrl: "",
+      documentation: "",
+    },
+    {
+      id: "proj-universal-joint-assembly",
+      title: "Universal Joint Assembly Modeling",
+      category: "Mechanical",
+      date: "2026",
+      shortDescription: "Modeled and assembled a complete 3D Hooke's Joint in Creo Parametric with kinematic motion verification.",
+      detailedDescription: "Designed a high-precision 3D CAD assembly of a Universal Joint (Hooke's Joint) in Creo Parametric. Formulated core component geometry—including driver/driven yokes, central spider pin, keys, and shaft ends—and configured kinematic constraints to demonstrate dynamic angular power transmission across non-collinear shafts.",
+      tools: ["Creo", "AutoCAD", "CAD Assembly", "Kinematic Analysis"],
+      role: "Mechanical CAD Designer",
+      images: [],
+      videoUrl: "/universal-joint.mp4",
+      githubUrl: "",
+      liveUrl: "",
+      documentation: "",
+    },
   ],
   skills: [
     { id: "skill-1", name: "Creo", category: "Engineering Software" },
