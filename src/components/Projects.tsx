@@ -60,7 +60,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 <div className="relative h-52 bg-black flex items-center justify-center overflow-hidden">
                   {project.videoUrl ? (
                     <video 
-                      src={project.videoUrl} 
+                      src={project.videoUrl}
+                      poster={project.images.length > 0 ? project.images[0] : undefined}
                       autoPlay 
                       loop 
                       muted 
@@ -108,6 +109,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               <div className="relative rounded-xl overflow-hidden bg-black max-h-80">
                 <video
                   src={selectedProject.videoUrl}
+                  poster={selectedProject.images.length > 0 ? selectedProject.images[0] : undefined}
                   controls
                   autoPlay
                   loop
@@ -120,7 +122,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             )}
 
             {/* Image Gallery */}
-            {selectedProject.images.length > 0 && (
+            {!selectedProject.videoUrl && selectedProject.images.length > 0 && (
               <div className="relative rounded-xl overflow-hidden bg-gray-100">
                 <img src={selectedProject.images[currentImageIndex]} alt={selectedProject.title} 
                   className="w-full h-64 sm:h-80 object-cover" />
@@ -143,7 +145,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             )}
 
             {/* Thumbnails */}
-            {selectedProject.images.length > 1 && (
+            {!selectedProject.videoUrl && selectedProject.images.length > 1 && (
               <div className="flex gap-2 overflow-x-auto pb-1">
                 {selectedProject.images.map((img, idx) => (
                   <button key={idx} onClick={() => setCurrentImageIndex(idx)}
