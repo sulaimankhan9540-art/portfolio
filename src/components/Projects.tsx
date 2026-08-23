@@ -65,7 +65,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       loop 
                       muted 
                       playsInline 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      preload="auto"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
                     />
                   ) : project.images.length > 0 ? (
                     <img src={project.images[0]} alt={project.title} 
@@ -74,11 +75,11 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     <FolderGit2 className="w-16 h-16 text-primary-300" />
                   )}
                   {project.images.length > 1 && (
-                    <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 text-white text-xs rounded-full font-medium">
+                    <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 text-white text-xs rounded-full font-medium z-10">
                       {project.images.length} photos
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/40 transition-colors flex items-center justify-center">
+                  <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/40 transition-colors flex items-center justify-center z-10">
                     <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-all">View Details</span>
                   </div>
                 </div>
@@ -112,6 +113,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   className="w-full max-h-80 object-contain mx-auto"
                 />
               </div>
