@@ -136,7 +136,7 @@ export const initialPortfolioData: PortfolioData = {
       tools: ["Creo", "AutoCAD", "CAD Assembly", "Kinematic Analysis"],
       role: "Mechanical CAD Designer",
       images: [universalThumbImg],
-      videoUrl: `${import.meta.env.BASE_URL}solar-demo.mp4`,
+      videoUrl: `${import.meta.env.BASE_URL}universal-joint.mp4`,
       githubUrl: "",
       liveUrl: "",
       documentation: "",
