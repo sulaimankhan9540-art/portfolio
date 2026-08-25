@@ -3,6 +3,7 @@ import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
 import waterTapImg from '../assets/water-tap-mockup.png';
 import universalThumbImg from '../assets/universal-thumb.jpeg';
+import solarThumbImg from '../assets/solar-thumb.jpeg';
 import { PortfolioData } from '../types';
 
 export const initialPortfolioData: PortfolioData = {
@@ -136,6 +137,21 @@ export const initialPortfolioData: PortfolioData = {
       role: "Mechanical CAD Designer",
       images: [universalThumbImg],
       videoUrl: "/universal-joint.mp4",
+      githubUrl: "",
+      liveUrl: "",
+      documentation: "",
+    },
+    {
+      id: "proj-agrivoltaic-solar-mount",
+      title: "Parametric Agrivoltaic Solar Mounting Structure",
+      category: "Mechanical",
+      date: "2026",
+      shortDescription: "Designed a parametric solar panel mounting framework optimized for dual agricultural land use and high wind loads.",
+      detailedDescription: "Engineered a parametric agrivoltaic mounting structure in PTC Creo optimized for agricultural deployment. Conducted structural FEA and wind simulation analyses to ensure load resistance against local environmental conditions, allowing dual land utilization for crop cultivation beneath elevated solar arrays.",
+      tools: ["PTC Creo", "AutoCAD", "FEA Analysis", "Wind Simulation", "Solar Mounting Design"],
+      role: "Mechanical CAD Designer",
+      images: [solarThumbImg],
+      videoUrl: "/publicsolar-demo.mp4",
       githubUrl: "",
       liveUrl: "",
       documentation: "",
