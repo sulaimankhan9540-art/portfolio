@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FolderGit2, Wrench, ExternalLink, Github, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FolderGit2, Wrench, ExternalLink, Github, FileText, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { Project } from '../types';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Modal } from './ui/Modal';
@@ -13,6 +13,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [filter, setFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   if (projects.length === 0) return null;
 
@@ -29,6 +30,12 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     if (selectedProject && selectedProject.images.length > 0) {
       setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
     }
+  };
+
+  const handleOpenModal = (project: Project) => {
+    setSelectedProject(project);
+    setCurrentImageIndex(0);
+    setIsVideoPlaying(false);
   };
 
   return (
@@ -55,29 +62,33 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project) => (
               <div key={project.id} 
-                onClick={() => { setSelectedProject(project); setCurrentImageIndex(0); }}
+                onClick={() => handleOpenModal(project)}
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer">
                 <div className="relative h-52 bg-black flex items-center justify-center overflow-hidden">
-                  {project.videoUrl ? (
+                  {project.images.length > 0 ? (
+                    <img 
+                      src={project.images[0]} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
+                  ) : project.videoUrl ? (
                     <video 
-                      src={project.videoUrl}
-                      poster={project.images.length > 0 ? project.images[0] : undefined}
-                      autoPlay 
-                      loop 
+                      src={project.videoUrl} 
                       muted 
                       playsInline 
-                      preload="auto"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
                     />
-                  ) : project.images.length > 0 ? (
-                    <img src={project.images[0]} alt={project.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
                     <FolderGit2 className="w-16 h-16 text-primary-300" />
                   )}
                   {project.images.length > 1 && (
                     <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 text-white text-xs rounded-full font-medium z-10">
                       {project.images.length} photos
+                    </div>
+                  )}
+                  {project.videoUrl && (
+                    <div className="absolute bottom-3 left-3 p-1.5 bg-black/60 text-white rounded-full z-10">
+                      <Play className="w-4 h-4 fill-white" />
                     </div>
                   )}
                   <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/40 transition-colors flex items-center justify-center z-10">
@@ -104,20 +115,41 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         title={selectedProject?.title || ''} size="lg">
         {selectedProject && (
           <div className="space-y-5">
-            {/* Video Player */}
+            {/* Interactive Video Player */}
             {selectedProject.videoUrl && (
-              <div className="relative rounded-xl overflow-hidden bg-black max-h-80">
-                <video
-                  src={selectedProject.videoUrl}
-                  poster={selectedProject.images.length > 0 ? selectedProject.images[0] : undefined}
-                  controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="w-full max-h-80 object-contain mx-auto"
-                />
+              <div className="relative rounded-xl overflow-hidden bg-black max-h-80 group">
+                {!isVideoPlaying ? (
+                  <div 
+                    className="relative w-full h-80 cursor-pointer flex items-center justify-center"
+                    onClick={() => setIsVideoPlaying(true)}
+                  >
+                    {selectedProject.images.length > 0 ? (
+                      <img 
+                        src={selectedProject.images[0]} 
+                        alt={selectedProject.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-900 flex items-center justify-center text-gray-400">
+                        Click to Play Video
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 flex items-center justify-center transition-all">
+                      <div className="w-16 h-16 rounded-full bg-white/90 group-hover:scale-110 flex items-center justify-center shadow-lg transition-transform">
+                        <Play className="w-8 h-8 text-primary-900 fill-primary-900 ml-1" />
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <video
+                    src={selectedProject.videoUrl}
+                    controls
+                    autoPlay
+                    loop
+                    playsInline
+                    className="w-full max-h-80 object-contain mx-auto"
+                  />
+                )}
               </div>
             )}
 
