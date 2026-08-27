@@ -65,7 +65,7 @@ export const Experience: React.FC<ExperienceProps> = ({ experience, onViewCertif
                           className="inline-flex items-center gap-2 px-3.5 py-2 bg-primary-50 hover:bg-primary-100 text-primary-700 text-xs font-semibold rounded-lg transition-colors border border-primary-200"
                         >
                           <FolderGit2 className="w-4 h-4 text-primary-600" />
-                          <span>View Related Project: Parametric Agrivoltaic Solar Mounting Structure</span>
+                          <span>View Project: Parametric Agrivoltaic Solar Mounting Structure</span>
                           <ExternalLink className="w-3.5 h-3.5 text-primary-500" />
                         </a>
                       </div>
