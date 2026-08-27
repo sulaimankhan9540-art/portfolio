@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, FileText, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, FileText, CheckCircle2, FolderGit2, ExternalLink } from 'lucide-react';
 import { Experience as ExperienceType } from '../types';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -56,6 +56,21 @@ export const Experience: React.FC<ExperienceProps> = ({ experience, onViewCertif
                         {exp.skills.map((skill, idx) => <span key={idx} className="px-2.5 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-md">{skill}</span>)}
                       </div>
                     )}
+                    
+                    {/* Project Navigation Link for MAK Pumps */}
+                    {exp.company.toLowerCase().includes('mak pumps') && (
+                      <div className="mt-5 pt-4 border-t border-gray-100">
+                        <a
+                          href="#projects"
+                          className="inline-flex items-center gap-2 px-3.5 py-2 bg-primary-50 hover:bg-primary-100 text-primary-700 text-xs font-semibold rounded-lg transition-colors border border-primary-200"
+                        >
+                          <FolderGit2 className="w-4 h-4 text-primary-600" />
+                          <span>View Related Project: Parametric Agrivoltaic Solar Mounting Structure</span>
+                          <ExternalLink className="w-3.5 h-3.5 text-primary-500" />
+                        </a>
+                      </div>
+                    )}
+
                     {exp.certificate && onViewCertificate && (
                       <button onClick={() => onViewCertificate(exp.certificate, exp.title)}
                         className="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-700 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors">
