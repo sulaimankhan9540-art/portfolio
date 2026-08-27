@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Calendar, Building2, Award, FileText } from 'lucide-react';
+import { GraduationCap, Calendar, Building2, Award, FileText, ExternalLink } from 'lucide-react';
 import { Education as EducationType } from '../types';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -11,6 +11,14 @@ interface EducationProps {
 export const Education: React.FC<EducationProps> = ({ education, onViewCertificate }) => {
   const { ref, isVisible } = useScrollAnimation();
   if (education.length === 0) return null;
+
+  const handleCertificateClick = (certificateUrl: string, title: string) => {
+    if (onViewCertificate) {
+      onViewCertificate(certificateUrl, title);
+    } else {
+      window.open(certificateUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <section id="education" className="py-20 lg:py-28 bg-primary-50/50">
@@ -48,10 +56,14 @@ export const Education: React.FC<EducationProps> = ({ education, onViewCertifica
                             </div>
                           )}
                           {edu.description && <p className="mt-3 text-gray-600 text-sm leading-relaxed">{edu.description}</p>}
-                          {edu.certificate && onViewCertificate && (
-                            <button onClick={() => onViewCertificate(edu.certificate, edu.degree)}
-                              className="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-700 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors">
-                              <FileText className="w-4 h-4" />View Certificate
+                          {edu.certificate && (
+                            <button 
+                              onClick={() => handleCertificateClick(edu.certificate!, edu.degree)}
+                              className="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-700 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors border border-primary-100"
+                            >
+                              <FileText className="w-4 h-4" />
+                              <span>View Certificate</span>
+                              <ExternalLink className="w-3.5 h-3.5 text-primary-500" />
                             </button>
                           )}
                         </div>
