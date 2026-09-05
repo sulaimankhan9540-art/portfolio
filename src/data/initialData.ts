@@ -1,6 +1,7 @@
 import cert1Pic from "../assets/cert-1.png";
 import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
+import cert3Img from '../assets/cert-3.jpeg';
 import waterTapImg from '../assets/water-tap-mockup.png';
 import universalThumbImg from '../assets/universal-thumb.jpeg';
 import solarThumbImg from '../assets/solar-thumb.jpeg';
@@ -107,6 +108,17 @@ export const initialPortfolioData: PortfolioData = {
       credentialId: "",
       description: "Attended webinar on aviation career pathways and jet engine engineering hosted by ASME UET Peshawar.",
       file: cert2Img,
+      url: "",
+    },
+    {
+      id: "cert-3",
+      title: "English Language Proficiency (CEFR B2)",
+      organization: "International English Test",
+      date: "2026-07-25",
+      category: "Certification",
+      credentialId: "",
+      description: "Certified for English language proficiency at CEFR Level B2.",
+      file: cert3Img,
       url: "",
     }
   ],
