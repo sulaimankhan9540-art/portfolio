@@ -112,12 +112,12 @@ export const initialPortfolioData: PortfolioData = {
     },
     {
       id: "cert-3",
-      title: "English Language Proficiency (CEFR B2)",
-      organization: "International English Test",
-      date: "2026-07-25",
-      category: "Certification",
+      title: "Cracking the Job Market: CV, LinkedIn & Strategies to Get Hired",
+      organization: "ASME UET Peshawar Student Section & ASME Pakistan Professional Section",
+      date: "2026-08-24",
+      category: "Professional Development",
       credentialId: "",
-      description: "Certified for English language proficiency at CEFR Level B2.",
+      description: "Attended webinar on career strategies, CV optimization, and LinkedIn branding hosted by ASME UET Peshawar and ASME Pakistan.",
       file: cert3Img,
       url: "",
     }
