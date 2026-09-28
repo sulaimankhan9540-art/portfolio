@@ -5,11 +5,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for fixed navbar anchor navigation */
   }
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #020617; /* Dark slate background fallback */
+    color: #f8fafc;
   }
 }
 
