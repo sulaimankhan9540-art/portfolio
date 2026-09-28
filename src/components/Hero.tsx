@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
   const initials = profile.name.split(' ').map(n => n[0]).join('').slice(0, 2);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-primary-50 via-white to-primary-100/60 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white overflow-hidden">
       
       {/* Embedded Keyframes for Guaranteed Animations */}
       <style>{`
@@ -23,8 +23,8 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
           50% { transform: translateY(-12px); }
         }
         @keyframes orbGlow {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.1); }
+          0%, 100% { opacity: 0.35; transform: scale(1); }
+          50% { opacity: 0.7; transform: scale(1.15); }
         }
         .animate-hero-float {
           animation: floatAnimation 4s ease-in-out infinite;
@@ -37,10 +37,10 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
       {/* Animated Ambient Background Blur Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div 
-          className="absolute top-16 left-10 w-80 h-80 bg-primary-300/40 rounded-full mix-blend-multiply filter blur-3xl animate-hero-orb" 
+          className="absolute top-16 left-10 w-96 h-96 bg-cyan-500/20 rounded-full filter blur-3xl animate-hero-orb" 
         />
         <div 
-          className="absolute bottom-16 right-10 w-96 h-96 bg-accent-300/40 rounded-full mix-blend-multiply filter blur-3xl animate-hero-orb" 
+          className="absolute bottom-16 right-10 w-[30rem] h-[30rem] bg-indigo-500/20 rounded-full filter blur-3xl animate-hero-orb" 
           style={{ animationDelay: '3s' }} 
         />
       </div>
@@ -50,18 +50,18 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
           
           {/* Left Hero Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-emerald-100 mb-6 transition-transform hover:scale-105">
-              <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping" />
-              <span className="text-sm font-semibold text-emerald-800">Available for opportunities</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 backdrop-blur-md rounded-full shadow-lg border border-emerald-500/30 mb-6 transition-transform hover:scale-105">
+              <span className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping" />
+              <span className="text-sm font-semibold text-emerald-300">Available for opportunities</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary-900 leading-tight mb-4 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 tracking-tight">
               {profile.name}
             </h1>
-            <p className="text-xl sm:text-2xl text-primary-600 font-semibold mb-4 bg-gradient-to-r from-primary-700 to-primary-900 bg-clip-text text-transparent">
+            <p className="text-xl sm:text-2xl font-semibold mb-4 bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent">
               {profile.title}
             </p>
-            <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg text-slate-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               {profile.tagline}
             </p>
 
@@ -69,17 +69,17 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
               <button 
                 onClick={onDownloadCV}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-primary-900 via-primary-800 to-primary-900 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:shadow-primary-900/20 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 group border border-primary-800"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300 active:scale-100 group border border-cyan-400/30"
               >
-                <Download className="w-5 h-5 group-hover:scale-110 transition-transform text-accent-400" />
+                <Download className="w-5 h-5 group-hover:scale-110 transition-transform text-cyan-100" />
                 <span>Download CV</span>
               </button>
               
               <button 
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white text-primary-900 font-semibold rounded-xl border-2 border-primary-200 hover:border-primary-400 hover:bg-primary-50/80 shadow-sm transition-all duration-300 transform hover:-translate-y-1"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-slate-800/80 text-slate-100 font-semibold rounded-xl border border-slate-700 hover:border-slate-500 hover:bg-slate-800 shadow-sm transition-all duration-300 transform hover:-translate-y-1"
               >
-                <Mail className="w-5 h-5 text-primary-600" />
+                <Mail className="w-5 h-5 text-cyan-400" />
                 <span>Contact Me</span>
               </button>
             </div>
@@ -91,7 +91,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
                   href={profile.linkedin.startsWith('http') ? profile.linkedin : 'https://' + profile.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#0077b5] text-white rounded-lg hover:bg-[#005885] shadow-sm hover:-translate-y-0.5 transition-all text-sm font-medium"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#0077b5] text-white rounded-lg hover:bg-[#005885] shadow-md hover:-translate-y-0.5 transition-all text-sm font-medium"
                 >
                   <Linkedin className="w-4 h-4" />
                   <span>LinkedIn</span>
@@ -102,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
                   href={'https://wa.me/' + profile.whatsapp.replace(/\D/g, '')} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366] text-white rounded-lg hover:bg-[#128C7E] shadow-sm hover:-translate-y-0.5 transition-all text-sm font-medium"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366] text-white rounded-lg hover:bg-[#128C7E] shadow-md hover:-translate-y-0.5 transition-all text-sm font-medium"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>WhatsApp</span>
@@ -115,23 +115,23 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative group animate-hero-float">
               {/* Outer Glowing Gradient Ring */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-accent-400 via-primary-500 to-accent-500 rounded-full blur-xl opacity-50 group-hover:opacity-80 transition duration-500 animate-hero-orb" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 rounded-full blur-2xl opacity-60 group-hover:opacity-90 transition duration-500 animate-hero-orb" />
               
               {/* Photo Circular Frame */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-gray-100 transition-transform duration-500 group-hover:scale-105">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-slate-700/80 shadow-2xl bg-slate-800 transition-transform duration-500 group-hover:scale-105">
                 {profile.photo ? (
                   <img src={profile.photo} alt={profile.name} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
-                    <span className="text-6xl sm:text-8xl font-bold text-primary-300">{initials}</span>
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
+                    <span className="text-6xl sm:text-8xl font-bold text-slate-500">{initials}</span>
                   </div>
                 )}
               </div>
 
               {/* Floating Location Badge */}
               {profile.location && (
-                <div className="absolute -bottom-2 -right-2 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl px-4 py-2.5 border border-gray-100 flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary-900 transition-transform hover:scale-105">
-                  <MapPin className="w-4 h-4 text-primary-600" />
+                <div className="absolute -bottom-2 -right-2 bg-slate-800/90 backdrop-blur-md rounded-2xl shadow-xl px-4 py-2.5 border border-slate-700 flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-200 transition-transform hover:scale-105">
+                  <MapPin className="w-4 h-4 text-cyan-400" />
                   <span>{profile.location}</span>
                 </div>
               )}
@@ -143,7 +143,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
         {/* Scroll Indicator */}
         <button 
           onClick={scrollToAbout} 
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-primary-400 hover:text-primary-700 transition-colors p-2" 
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-slate-400 hover:text-cyan-400 transition-colors p-2" 
           aria-label="Scroll down"
         >
           <ChevronDown className="w-8 h-8" />
