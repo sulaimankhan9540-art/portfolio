@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900">
+    <div className="min-h-screen bg-slate-950 font-sans text-slate-100 selection:bg-cyan-500 selection:text-white">
       <Navbar 
         onAdminToggle={() => setIsAdminOpen(true)} 
         onDownloadCV={() => setIsCVOpen(true)} 
