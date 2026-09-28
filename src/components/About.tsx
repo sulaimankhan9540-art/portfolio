@@ -12,7 +12,7 @@ export const About: React.FC<AboutProps> = ({ profile }) => {
   const initials = profile.name.split(' ').map(n => n[0]).join('').slice(0, 2);
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-slate-950 text-slate-100 relative overflow-hidden border-t border-slate-800/60">
+    <section id="about" className="py-20 lg:py-28 bg-slate-950 text-slate-100 relative overflow-hidden">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -33,7 +33,7 @@ export const About: React.FC<AboutProps> = ({ profile }) => {
             <div className="flex justify-center lg:justify-start">
               <div className="relative group">
                 <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-3xl blur opacity-40 group-hover:opacity-75 transition duration-500" />
-                <div className="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-slate-700 bg-slate-900 shadow-2xl">
+                <div className="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900 shadow-2xl">
                   {profile.photo ? (
                     <img src={profile.photo} alt={profile.name} className="w-full h-full object-cover" />
                   ) : (
