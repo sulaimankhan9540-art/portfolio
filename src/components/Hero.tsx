@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
   const initials = profile.name.split(' ').map(n => n[0]).join('').slice(0, 2);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white overflow-hidden pt-16">
+    <section id="home" className="relative min-h-screen flex items-center bg-slate-950 text-white overflow-hidden pt-16">
       
       {/* Embedded Keyframes for Animations */}
       <style>{`
@@ -23,8 +23,8 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
           50% { transform: translateY(-12px); }
         }
         @keyframes orbGlow {
-          0%, 100% { opacity: 0.4; transform: scale(1); }
-          50% { opacity: 0.8; transform: scale(1.2); }
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.15); }
         }
         .animate-hero-float {
           animation: floatAnimation 4s ease-in-out infinite;
@@ -34,13 +34,13 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
         }
       `}</style>
 
-      {/* Vibrant Ambient Blue/Cyan Glow Orbs */}
+      {/* Ambient Blue/Cyan Glow Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div 
-          className="absolute top-10 left-10 w-96 h-96 bg-cyan-500/20 rounded-full filter blur-[100px] animate-hero-orb" 
+          className="absolute top-10 left-10 w-96 h-96 bg-cyan-500/15 rounded-full filter blur-[120px] animate-hero-orb" 
         />
         <div 
-          className="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-blue-600/25 rounded-full filter blur-[120px] animate-hero-orb" 
+          className="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-blue-600/15 rounded-full filter blur-[140px] animate-hero-orb" 
           style={{ animationDelay: '3s' }} 
         />
       </div>
@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
           
           {/* Left Hero Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900/60 backdrop-blur-md rounded-full shadow-lg border border-cyan-400/30 mb-6 transition-transform hover:scale-105">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/80 backdrop-blur-md rounded-full shadow-lg border border-cyan-400/30 mb-6 transition-transform hover:scale-105">
               <span className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-ping" />
               <span className="text-sm font-semibold text-cyan-200">Available for opportunities</span>
             </div>
@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
               <button 
                 onClick={onDownloadCV}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300 active:scale-100 group border border-cyan-300/30"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300 active:scale-100 group border border-cyan-300/30"
               >
                 <Download className="w-5 h-5 group-hover:scale-110 transition-transform text-cyan-100" />
                 <span>Download CV</span>
@@ -111,13 +111,11 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
             </div>
           </div>
 
-          {/* Right Image Container with Blue Halo */}
+          {/* Right Image Container */}
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative group animate-hero-float">
-              {/* Outer Vibrant Cyan Halo */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-600 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition duration-500 animate-hero-orb" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-600 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition duration-500 animate-hero-orb" />
               
-              {/* Photo Circular Frame */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-cyan-300/80 shadow-2xl bg-slate-900 transition-transform duration-500 group-hover:scale-105">
                 {profile.photo ? (
                   <img src={profile.photo} alt={profile.name} className="w-full h-full object-cover" />
@@ -128,7 +126,6 @@ export const Hero: React.FC<HeroProps> = ({ profile, onDownloadCV }) => {
                 )}
               </div>
 
-              {/* Floating Location Badge */}
               {profile.location && (
                 <div className="absolute -bottom-2 -right-2 bg-slate-900/90 backdrop-blur-md rounded-2xl shadow-xl px-4 py-2.5 border border-cyan-400/30 flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-100 transition-transform hover:scale-105">
                   <MapPin className="w-4 h-4 text-cyan-400" />
