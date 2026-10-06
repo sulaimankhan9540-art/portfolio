@@ -75,10 +75,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Brand / Logo - SK Only */}
+          {/* Brand Logo - SK Only */}
           <button 
             onClick={() => scrollTo('#home')} 
-            className="text-xl font-extrabold text-cyan-400 tracking-wider hover:text-cyan-300 transition-colors flex items-center"
+            className="text-xl font-extrabold text-cyan-400 tracking-wider hover:text-cyan-300 transition-colors flex items-center outline-none focus:outline-none"
           >
             SK
           </button>
@@ -91,10 +91,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
                 <button 
                   key={link.href} 
                   onClick={() => scrollTo(link.href)}
-                  className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  className={`px-3.5 py-2 text-sm font-medium transition-all duration-200 outline-none focus:outline-none ${
                     isActive 
-                      ? 'text-cyan-400 bg-slate-900 border border-slate-800/80 shadow-sm' 
-                      : 'text-slate-300 hover:text-cyan-400 hover:bg-slate-900/50'
+                      ? 'text-cyan-400 font-semibold' 
+                      : 'text-slate-300 hover:text-cyan-400'
                   }`}
                 >
                   {link.label}
@@ -105,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
             {/* Download CV Button */}
             <button 
               onClick={handleCVClick}
-              className="ml-3 px-4 py-2 text-sm font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:bg-cyan-500 rounded-lg transition-all duration-200 shadow-md shadow-cyan-500/20 flex items-center gap-1.5"
+              className="ml-3 px-4 py-2 text-sm font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:bg-cyan-500 rounded-lg transition-all duration-200 shadow-md shadow-cyan-500/20 flex items-center gap-1.5 outline-none focus:outline-none"
             >
               <Download className="w-4 h-4 text-slate-950" />
               <span>CV</span>
@@ -116,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
           <div className="flex items-center gap-2 lg:hidden">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-              className="p-2 text-slate-300 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-lg transition-colors" 
+              className="p-2 text-slate-300 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-lg transition-colors outline-none focus:outline-none" 
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6 text-cyan-400" /> : <Menu className="w-6 h-6" />}
@@ -134,10 +134,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
                   <button 
                     key={link.href} 
                     onClick={() => scrollTo(link.href)}
-                    className={`px-4 py-3 text-left font-medium rounded-xl transition-all duration-200 ${
+                    className={`px-4 py-3 text-left font-medium rounded-xl transition-all duration-200 outline-none focus:outline-none ${
                       isActive 
-                        ? 'text-cyan-400 bg-slate-950/80 border border-cyan-500/20' 
-                        : 'text-slate-200 hover:text-cyan-400 hover:bg-slate-950/50'
+                        ? 'text-cyan-400 font-semibold bg-slate-950/40' 
+                        : 'text-slate-200 hover:text-cyan-400 hover:bg-slate-950/30'
                     }`}
                   >
                     {link.label}
@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
               
               <button 
                 onClick={handleCVClick} 
-                className="mt-3 px-4 py-3 text-center font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:bg-cyan-500 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/10"
+                className="mt-3 px-4 py-3 text-center font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:bg-cyan-500 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/10 outline-none focus:outline-none"
               >
                 <Download className="w-4 h-4" />
                 <span>Download CV</span>
