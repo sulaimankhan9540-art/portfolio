@@ -121,9 +121,9 @@ export const initialPortfolioData: PortfolioData = {
       description: "Attended webinar on career strategies, CV optimization, and LinkedIn branding hosted by ASME UET Peshawar and ASME Pakistan.",
       file: cert3Img,
       url: "",
-    }
+    },
     {
-  id: "cert-4",
+        id: "cert-4",
   title: "AI in Education - International Panel Discussion",
   organization: "AICP - IST Chapter & University of Leeds, United Kingdom",
   date: "2026-08-01",
