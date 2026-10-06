@@ -9,6 +9,24 @@ interface ProjectsProps {
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  // Helper to check if URL is a direct video file
+  const isVideoUrl = (url?: string) => {
+    if (!url) return false;
+    return url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg');
+  };
+
+  // Helper to convert standard YouTube link to embed link
+  const getEmbedUrl = (url?: string) => {
+    if (!url) return '';
+    if (url.includes('youtube.com/watch?v=')) {
+      return url.replace('watch?v=', 'embed/');
+    }
+    if (url.includes('youtu.be/')) {
+      return url.replace('youtu.be/', 'youtube.com/embed/');
+    }
+    return url;
+  };
+
   return (
     <section id="projects" className="py-20 bg-slate-950 text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,7 +105,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </div>
       </div>
 
-      {/* High Contrast Project Detail Modal */}
+      {/* Modal with Video Support */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
           <div className="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative text-slate-100">
@@ -101,21 +119,37 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Modal Image/Video Header */}
-            <div className="relative h-64 bg-slate-950 overflow-hidden">
-              {selectedProject.images && selectedProject.images[0] ? (
+            {/* Media Header (Supports MP4, YouTube, or Images) */}
+            <div className="relative h-64 sm:h-72 bg-slate-950 overflow-hidden">
+              {selectedProject.videoUrl ? (
+                isVideoUrl(selectedProject.videoUrl) ? (
+                  <video 
+                    src={selectedProject.videoUrl} 
+                    controls 
+                    autoPlay 
+                    className="w-full h-full object-cover" 
+                  />
+                ) : (
+                  <iframe 
+                    src={getEmbedUrl(selectedProject.videoUrl)} 
+                    title={selectedProject.title} 
+                    className="w-full h-full border-0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen 
+                  />
+                )
+              ) : selectedProject.images && selectedProject.images[0] ? (
                 <img 
                   src={selectedProject.images[0]} 
                   alt={selectedProject.title} 
                   className="w-full h-full object-cover"
                 />
               ) : null}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent pointer-events-none"></div>
             </div>
 
             {/* Modal Content */}
             <div className="p-6 sm:p-8 space-y-6">
-              
               <div>
                 <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
                   {selectedProject.category}
@@ -130,14 +164,12 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 )}
               </div>
 
-              {/* Clear Dark Body Text */}
               <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
                 <p className="text-slate-200 text-base leading-relaxed">
                   {selectedProject.detailedDescription}
                 </p>
               </div>
 
-              {/* Technologies / Tools */}
               {selectedProject.tools && selectedProject.tools.length > 0 && (
                 <div>
                   <h4 className="text-sm font-bold uppercase text-slate-300 tracking-wider mb-3">
@@ -155,7 +187,6 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   </div>
                 </div>
               )}
-
             </div>
           </div>
         </div>
