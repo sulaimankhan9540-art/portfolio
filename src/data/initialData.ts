@@ -23,8 +23,8 @@ export const initialPortfolioData: PortfolioData = {
     phone: "+923179540566",
     whatsapp: "+923179540566",
     linkedin: "www.linkedin.com/in/sulaiman-khann",
-    github: "",
-    portfolio: "",
+    github: "https://github.com/sulaimankhan9540",
+    portfolio: "https://sulaiman-khan.vercel.app",
     otherLinks: [],
     dateOfBirth: "",
   },
@@ -123,16 +123,16 @@ export const initialPortfolioData: PortfolioData = {
       url: "",
     },
     {
-        id: "cert-4",
-  title: "AI in Education - International Panel Discussion",
-  organization: "AICP - IST Chapter & University of Leeds, United Kingdom",
-  date: "2026-08-01",
-  category: "Artificial Intelligence",
-  credentialId: "",
-  description: "Certificate of Appreciation for actively participating in the International Panel discussion on 'AI in Education' organized by AICP-IST in collaboration with the University of Leeds, UK.",
-  file: cert4Img,
-  url: "",
-}
+      id: "cert-4",
+      title: "AI in Education - International Panel Discussion",
+      organization: "AICP - IST Chapter & University of Leeds, United Kingdom",
+      date: "2026-08-01",
+      category: "Artificial Intelligence",
+      credentialId: "",
+      description: "Certificate of Appreciation for actively participating in the International Panel discussion on 'AI in Education' organized by AICP-IST in collaboration with the University of Leeds, UK.",
+      file: cert4Img,
+      url: "",
+    }
   ],
   projects: [
     {
