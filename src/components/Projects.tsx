@@ -29,7 +29,9 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           {projects.map((project) => {
             const projectImg = Array.isArray(project.images) && project.images.length > 0 
               ? project.images[0] 
-              : (project as any).image || '';
+              : '';
+
+            const toolsList = project.tools || [];
 
             return (
               <div 
@@ -63,7 +65,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
                   <div>
                     <div className="flex flex-wrap gap-1.5 mb-5">
-                      {(project.tools || (project as any).technologies || []).slice(0, 3).map((tech: string, idx: number) => (
+                      {toolsList.slice(0, 3).map((tech: string, idx: number) => (
                         <span key={idx} className="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md border border-slate-700">
                           {tech}
                         </span>
@@ -107,12 +109,6 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   alt={selectedProject.title} 
                   className="w-full h-full object-cover"
                 />
-              ) : (project as any).image ? (
-                <img 
-                  src={(project as any).image} 
-                  alt={selectedProject.title} 
-                  className="w-full h-full object-cover"
-                />
               ) : null}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
             </div>
@@ -137,26 +133,28 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               {/* Clear Dark Body Text */}
               <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
                 <p className="text-slate-200 text-base leading-relaxed">
-                  {selectedProject.detailedDescription || (selectedProject as any).fullDescription}
+                  {selectedProject.detailedDescription}
                 </p>
               </div>
 
               {/* Technologies / Tools */}
-              <div>
-                <h4 className="text-sm font-bold uppercase text-slate-300 tracking-wider mb-3">
-                  Technologies & Tools
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {(selectedProject.tools || (selectedProject as any).technologies || []).map((tech: string, idx: number) => (
-                    <span 
-                      key={idx} 
-                      className="px-3 py-1 bg-slate-800 text-cyan-300 font-medium text-xs rounded-lg border border-slate-700"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              {selectedProject.tools && selectedProject.tools.length > 0 && (
+                <div>
+                  <h4 className="text-sm font-bold uppercase text-slate-300 tracking-wider mb-3">
+                    Technologies & Tools
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tools.map((tech: string, idx: number) => (
+                      <span 
+                        key={idx} 
+                        className="px-3 py-1 bg-slate-800 text-cyan-300 font-medium text-xs rounded-lg border border-slate-700"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
             </div>
           </div>

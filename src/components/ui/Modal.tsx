@@ -25,7 +25,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, 
       onClick={onClose}
     >
       <div 
-        className={`bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl w-full ${sizeClasses[size]} max-h-[90vh] overflow-y-auto text-slate-100`} 
+        className={`bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl w-full ${sizeClasses[size]} max-h-[90vh] overflow-y-auto text-slate-100`} 
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between p-6 border-b border-slate-800">
