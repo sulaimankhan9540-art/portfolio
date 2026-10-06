@@ -26,15 +26,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = navLinks.map(link => document.querySelector(link.href));
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 100;
 
-      sections.forEach((section) => {
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.href);
         if (section instanceof HTMLElement) {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
           if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            setActiveSection(section.id);
+            setActiveSection(link.id);
           }
         }
       });
@@ -47,7 +47,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
   const scrollTo = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
     setIsMobileMenuOpen(false);
   };
@@ -68,15 +75,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
+          {/* Brand / Logo - Updated to SK */}
           <button 
             onClick={() => scrollTo('#home')} 
             className="text-xl font-bold text-white tracking-tight hover:text-cyan-400 transition-colors flex items-center gap-1.5"
           >
             <span className="text-cyan-400 font-extrabold">&lt;</span>
-            <span>Portfolio</span>
+            <span className="font-extrabold tracking-wider">SK</span>
             <span className="text-cyan-400 font-extrabold">/&gt;</span>
           </button>
 
+          {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
@@ -95,6 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
               );
             })}
             
+            {/* Download CV Button */}
             <button 
               onClick={handleCVClick}
               className="ml-3 px-4 py-2 text-sm font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:bg-cyan-500 rounded-lg transition-all duration-200 shadow-md shadow-cyan-500/20 flex items-center gap-1.5 font-medium"
@@ -104,6 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
             </button>
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 lg:hidden">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
@@ -115,8 +126,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminToggle, onDownloadCV }) =
           </div>
         </div>
 
+        {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-6 pt-4 px-4 bg-slate-900/95 backdrop-blur-2xl shadow-2xl rounded-2xl border border-slate-800">
+          <div className="lg:hidden mt-4 pb-6 pt-4 px-4 bg-slate-900/95 backdrop-blur-2xl shadow-2xl rounded-2xl border border-slate-800 animate-in fade-in slide-in-from-top-4 duration-200">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
