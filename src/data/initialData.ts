@@ -2,6 +2,7 @@ import cert1Pic from "../assets/cert-1.png";
 import profilePic from "../assets/photo-1.png";
 import cert2Img from '../assets/cert-2.png';
 import cert3Img from '../assets/cert-3.jpeg';
+import cert4Img from '../assets/cert-4.jpg';
 import waterTapImg from '../assets/water-tap-mockup.png';
 import universalThumbImg from '../assets/universal-thumb.jpeg';
 import solarThumbImg from '../assets/solar-thumb.jpeg';
@@ -121,6 +122,17 @@ export const initialPortfolioData: PortfolioData = {
       file: cert3Img,
       url: "",
     }
+    {
+  id: "cert-4",
+  title: "AI in Education - International Panel Discussion",
+  organization: "AICP - IST Chapter & University of Leeds, United Kingdom",
+  date: "2026-08-01",
+  category: "Artificial Intelligence",
+  credentialId: "",
+  description: "Certificate of Appreciation for actively participating in the International Panel discussion on 'AI in Education' organized by AICP-IST in collaboration with the University of Leeds, UK.",
+  file: cert4Img,
+  url: "",
+}
   ],
   projects: [
     {
